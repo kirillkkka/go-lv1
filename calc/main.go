@@ -4,11 +4,16 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strconv"
+
 	//"strconv"
 )
 
 func main() {
-	var a, b, res float64
+	var a, b string
+	var res float64
+	var fa, fb float64
+	var err error
 	var op string
 
 	fmt.Print("Введите первое число: ")
@@ -17,44 +22,38 @@ func main() {
 	fmt.Print("Введите второе число: ")
 	fmt.Scanln(&b)
 
-	// Вариант с переводом из string во float64 и отработкой ошибок не осилил.
-	// Рано полез или так и нужно было делать?
-	//
-	//var fa, fb float64
-	//var err error
-	//
-	//fa, err := strconv.ParseFloat(a, 64)
-	//if err != nil {
-	//	fmt.Print(os.Stderr, "Вы ввели не число, перезапустите программу")
-	//	os.Exit(1)
-	//}
-	//
-	//fb, err := strconv.ParseFloat(b, 64)
-	//if err != nil {
-	//	fmt.Print(os.Stderr, "Вы ввели не число, перезапустите программу")
-	//	os.Exit(1)
-	//}
+	fa, err = strconv.ParseFloat(a, 64)
+	if err != nil {
+		fmt.Fprint(os.Stderr, "Вы ввели не число, перезапустите программу\n")
+		os.Exit(1)
+	}
+
+	fb, err = strconv.ParseFloat(b, 64)
+	if err != nil {
+		fmt.Fprint(os.Stderr, "Вы ввели не число, перезапустите программу\n")
+		os.Exit(1)
+	}
 
 	fmt.Print("Введите арифметическую операцию (+, -, *, /, ^, %): ")
 	fmt.Scanln(&op)
 
 	switch op {
 	case "+":
-		res = a + b
+		res = fa + fb
 	case "-":
-		res = a - b
+		res = fa - fb
 	case "*":
-		res = a * b
+		res = fa * fb
 	case "/":
-		res = a / b
-		if b ==  0 {
+		res = fa / fb
+		if fb ==  0 {
 			fmt.Fprint(os.Stderr, "Делить на ноль нельзя, перезапустите программу")
 			os.Exit(1)
 		}
 	case "^":
-		res = math.Pow(a, b)
+		res = math.Pow(fa, fb)
 	case "%":
-		res = math.Mod(a, b)
+		res = math.Mod(fa, fb)
 	default:
 		fmt.Println("Операция выбрана неверно")
 		os.Exit(1)
