@@ -4,15 +4,16 @@ import (
 	"fmt"
 )
 
-func insertionSort(sliceToSort []int) {
+func insertionSort(sliceToSort []int) []int {
 	for i := 1; i < len(sliceToSort); i++ {
-		x := sliceToSort[i]
+		el := sliceToSort[i]
 		j := i
-		for ; j >= 1 && sliceToSort[j-1] > x; j-- {
+		for ; j >= 1 && sliceToSort[j-1] > el; j-- {
 			sliceToSort[j] = sliceToSort[j-1]
 		}
-		sliceToSort[j] = x
+		sliceToSort[j] = el
 	}
+	return sliceToSort
 }
 
 func main() {

@@ -4,18 +4,18 @@ import (
 	"fmt"
 )
 
-func bubbleSort(sliceToSort []int) {
-	size := len(sliceToSort)
-	if size < 2 {
-		return
+func bubbleSort(sliceToSort []int) []int {
+	if len(sliceToSort) < 2 {
+		return sliceToSort
 	}
-	for i := 0; i < size; i++ {
-		for j := size - 1; j >= i+1; j-- {
+	for i := 0; i < len(sliceToSort); i++ {
+		for j := len(sliceToSort) - 1; j >= i+1; j-- {
 			if sliceToSort[j] < sliceToSort[j-1] {
 				sliceToSort[j], sliceToSort[j-1] = sliceToSort[j-1], sliceToSort[j]
 			}
 		}
 	}
+	return sliceToSort
 }
 
 func main() {
