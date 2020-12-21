@@ -5,5 +5,8 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello, world!")
+	_, err := fmt.Println("Hello, world!")
+	if err != nil {
+		fmt.Println( "Error:", err)
+	}
 }
