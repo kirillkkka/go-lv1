@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func insertionSort(sliceToSort []int) []int {
+func InsertionSort(sliceToSort []int) []int {
 	for i := 1; i < len(sliceToSort); i++ {
 		el := sliceToSort[i]
 		j := i
@@ -21,7 +21,7 @@ func main() {
 
 	fmt.Println("Before insertion sort: ", slice)
 
-	insertionSort(slice)
+	InsertionSort(slice)
 
 	fmt.Println("After insertion sort: ", slice)
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func bubbleSort(sliceToSort []int) []int {
+func BubbleSort(sliceToSort []int) []int {
 	if len(sliceToSort) < 2 {
 		return sliceToSort
 	}
@@ -23,7 +23,7 @@ func main() {
 
 	fmt.Println("Before bubble sort: ", slice)
 
-	bubbleSort(slice)
+	BubbleSort(slice)
 
 	fmt.Println("After bubble sort: ", slice)
 }
