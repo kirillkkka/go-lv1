@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func fib(n int) int {
+func Fib(n int) int {
 	cash := make(map[int]int)
 	for i := 0; i <= n; i++ {
 		var f int
@@ -18,6 +18,6 @@ func fib(n int) int {
 }
 
 func main() {
-	var x = fib(9) // указываем значение, для которого ищем число Фибонначи
+	var x = Fib(9) // указываем значение, для которого ищем число Фибонначи
 	fmt.Printf("Fibanocci for your number is: %d\n", x)
 }
